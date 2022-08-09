@@ -1,18 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/constraintlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/forrestGamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/glagiator"
+            app:layout_constraintEnd_toStartOf="@+id/greenMile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/forrestGumpImg"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/forrestgump" />
+
+            <TextView
+                android:id="@+id/forrestGumpText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forrestGampName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/greenMile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toTopOf="@id/inception"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/forrestGamp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/greenMileImg"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/green_mile" />
+
+            <TextView
+                android:id="@+id/greenMileText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/greenMileName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/glagiator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/shawshankRedemptio"
+            app:layout_constraintEnd_toStartOf="@+id/inception"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/forrestGamp">
+
+            <ImageView
+                android:id="@+id/glagiatorImg"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/gladiator" />
+
+            <TextView
+                android:id="@+id/glagiatorText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gladiatorName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/inception"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/interstellar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/glagiator"
+            app:layout_constraintTop_toBottomOf="@+id/greenMile">
+
+            <ImageView
+                android:id="@+id/inceptionImg"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/inception" />
+
+            <TextView
+                android:id="@+id/inceptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/inceptionName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shawshankRedemptio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/intouchables"
+            app:layout_constraintEnd_toStartOf="@+id/interstellar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/glagiator">
+
+            <ImageView
+                android:id="@+id/shawshankRedemptioImg"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/shawshankredemptio" />
+
+            <TextView
+                android:id="@+id/shawshankRedemptioText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/shawshankRedemptioName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/interstellar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toTopOf="@id/pulpfiction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/shawshankRedemptio"
+            app:layout_constraintTop_toBottomOf="@+id/inception">
+
+            <ImageView
+                android:id="@+id/interstellarImg"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/interstellar" />
+
+            <TextView
+                android:id="@+id/interstellarText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/interstellarName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/intouchables"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/pulpfiction"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shawshankRedemptio"
+            app:layout_constraintBottom_toTopOf="@id/schindlerslist">
+
+            <ImageView
+                android:id="@+id/intouchablesImg"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/intouchables" />
+
+            <TextView
+                android:id="@+id/intouchablesText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/intouchablesName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pulpfiction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/shutterisland"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/intouchables"
+            app:layout_constraintTop_toBottomOf="@+id/interstellar">
+
+            <ImageView
+                android:id="@+id/pulpFictionImg"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/pulpfiction" />
+
+            <TextView
+                android:id="@+id/pulpFictionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pulpFictionName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/schindlerslist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/intouchables"
+            app:layout_constraintEnd_toStartOf="@id/shutterisland">
+
+            <ImageView
+                android:id="@+id/schindlersListImg"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/schindlerslist" />
+
+            <TextView
+                android:id="@+id/schindlersListText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/schindlersListName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shutterisland"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/schindlerslist"
+            app:layout_constraintTop_toBottomOf="@+id/pulpfiction">
+
+            <ImageView
+                android:id="@+id/shutterislandImg"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/shutterisland" />
+
+            <TextView
+                android:id="@+id/shutterislandText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/shutterIslandName" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

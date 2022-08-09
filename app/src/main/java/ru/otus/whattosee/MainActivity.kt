@@ -58,8 +58,8 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<LinearLayout>(R.id.shawshankRedemptio).setOnClickListener {
             val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.shawshankRedemptioName)
-            intent.putExtra("filmDesc", R.string.shawshankRedemptioDescription)
+            intent.putExtra("filmName", R.string.shawshankRedemptionName)
+            intent.putExtra("filmDesc", R.string.shawshankRedemptionDescription)
             intent.putExtra("filmImg", R.drawable.shawshankredemptio)
             launcher.launch(intent)
             selectId = it.id

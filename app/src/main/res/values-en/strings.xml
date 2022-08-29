@@ -26,4 +26,10 @@
     <string name="inviteText">Hi, let\'s watch the \"%s\" together!</string>
     <string name="inviteSuccess">The invitation has been sent!</string>
     <string name="inviteButtonText">Watching with a friend</string>
+    <string name="favoriteTitle">Favorite films</string>
+    <string name="successStr">Success</string>
+    <string name="goToFavorites">Go to favorites</string>
+    <string name="successRemovedStr">Success removed from favorites</string>
+    <string name="cancel">Cancel</string>
+    <string name="defaultShortDescription">Мне лень писать, тут какое то описание, бла бла бла …</string>
 </resources>

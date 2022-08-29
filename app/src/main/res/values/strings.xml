@@ -26,4 +26,10 @@
     <string name="inviteText">Привет, давай вместе посмотрим фильм \"%s\"</string>
     <string name="inviteSuccess">Приглашение отправленно!</string>
     <string name="inviteButtonText">Посмотреть вместе с другом</string>
+    <string name="favoriteTitle">Избранное</string>
+    <string name="successStr">Успешно</string>
+    <string name="goToFavorites">В избранное</string>
+    <string name="successRemovedStr">Удаленно из избранного</string>
+    <string name="cancel">Отмена</string>
+    <string name="defaultShortDescription">Мне лень писать, тут какое то описание, бла бла бла …</string>
 </resources>

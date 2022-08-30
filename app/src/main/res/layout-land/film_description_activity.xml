@@ -6,15 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".FilmDetailsActivity">
 
+
+    <ImageView
+        android:id="@+id/filmImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/forrestgump" />
+
     <ScrollView
         android:id="@+id/descriptionZone"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/comment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filmImg">
+        app:layout_constraintStart_toEndOf="@+id/filmImg"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/descriptionText"
@@ -23,20 +34,9 @@
             android:text="@string/shawshankRedemptionName" />
     </ScrollView>
 
-    <ImageView
-        android:id="@+id/filmImg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        tools:src="@drawable/forrestgump"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/comment"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="6"
         android:ems="10"
@@ -44,7 +44,7 @@
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filmImg"
         app:layout_constraintBottom_toTopOf="@id/saveButton" />
 
     <Button
@@ -55,7 +55,16 @@
         android:text="@string/saveButtonText"
         app:layout_constraintBottom_toTopOf="@+id/inviteButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/filmImg" />
+
+    <Button
+        android:id="@+id/inviteButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/inviteButtonText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filmImg"/>
 
     <ImageView
         android:id="@+id/isFavoriteImg"
@@ -66,12 +75,5 @@
         app:layout_constraintTop_toTopOf="@+id/filmImg"
         app:srcCompat="@android:drawable/btn_star_big_off" />
 
-    <Button
-        android:id="@+id/inviteButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/inviteButtonText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

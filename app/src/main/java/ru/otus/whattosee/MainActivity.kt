@@ -2,127 +2,111 @@ package ru.otus.whattosee
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
+import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.children
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
+
 
 private const val TAG = "Description_activity"
 
 class MainActivity : AppCompatActivity() {
+
+    private val recyclerView by lazy { findViewById<RecyclerView>(R.id.recycler) }
+    private val app by lazy {application as App}
+    private var isFavoriteList = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setOnClickListeners()
+        isFavoriteList = intent.getBooleanExtra("isFavoriteList", false)
+        if(isFavoriteList)
+        {
+            setTitle(getString(R.string.favoriteTitle))
+        }
+        initRecycler()
     }
 
 
+    private fun initRecycler() {
+        val layoutManager = GridLayoutManager(this, if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 1 else 2)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = FilmItemAdapter(if(!isFavoriteList) app.filmItems else app.favoritFilmsItems, object : FilmItemClickListener {
+                override fun onFilmClick(filmItem: FilmItem, position: Int) {
+                    val intent = Intent(this@MainActivity, FilmDetailsActivity::class.java)
+                    intent.putExtra("filmId", filmItem.filmId)
+                    launcher.launch(intent)
+                    app.setNewLastSelectedFilm(filmItem)
+                }
 
-    fun setOnClickListeners() {
-        findViewById<LinearLayout>(R.id.forrestGamp).setOnClickListener {
-            val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.forrestGampName)
-            intent.putExtra("filmDesc", R.string.forrestGampDescription)
-            intent.putExtra("filmImg", R.drawable.forrestgump)
-            launcher.launch(intent)
-            selectId = it.id
-        }
-        findViewById<LinearLayout>(R.id.greenMile).setOnClickListener {
-            val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.greenMileName)
-            intent.putExtra("filmDesc", R.string.greenMileDescription)
-            intent.putExtra("filmImg", R.drawable.green_mile)
-            launcher.launch(intent)
-            selectId = it.id
-        }
-        findViewById<LinearLayout>(R.id.glagiator).setOnClickListener {
-            val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.gladiatorName)
-            intent.putExtra("filmDesc", R.string.gladiatorDescription)
-            intent.putExtra("filmImg", R.drawable.gladiator)
-            launcher.launch(intent)
-            selectId = it.id
-        }
-        findViewById<LinearLayout>(R.id.inception).setOnClickListener {
-            val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.inceptionName)
-            intent.putExtra("filmDesc", R.string.inceptionDescription)
-            intent.putExtra("filmImg", R.drawable.inception)
-            launcher.launch(intent)
-            selectId = it.id
-        }
-        findViewById<LinearLayout>(R.id.shawshankRedemptio).setOnClickListener {
-            val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.shawshankRedemptioName)
-            intent.putExtra("filmDesc", R.string.shawshankRedemptioDescription)
-            intent.putExtra("filmImg", R.drawable.shawshankredemptio)
-            launcher.launch(intent)
-            selectId = it.id
-        }
-        findViewById<LinearLayout>(R.id.interstellar).setOnClickListener {
-            val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.interstellarName)
-            intent.putExtra("filmDesc", R.string.interstellarDescription)
-            intent.putExtra("filmImg", R.drawable.interstellar)
-            launcher.launch(intent)
-            selectId = it.id
-        }
-        findViewById<LinearLayout>(R.id.intouchables).setOnClickListener {
-            val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.intouchablesName)
-            intent.putExtra("filmDesc", R.string.intouchablesDescription)
-            intent.putExtra("filmImg", R.drawable.intouchables)
-            launcher.launch(intent)
-            selectId = it.id
-        }
-        findViewById<LinearLayout>(R.id.pulpfiction).setOnClickListener {
-            val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.pulpFictionName)
-            intent.putExtra("filmDesc", R.string.pulpFictionDescription)
-            intent.putExtra("filmImg", R.drawable.pulpfiction)
-            launcher.launch(intent)
-            selectId = it.id
-        }
-        findViewById<LinearLayout>(R.id.schindlerslist).setOnClickListener {
-            val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.schindlersListName)
-            intent.putExtra("filmDesc", R.string.schindlersListDescription)
-            intent.putExtra("filmImg", R.drawable.schindlerslist)
-            launcher.launch(intent)
-            selectId = it.id
-        }
-        findViewById<LinearLayout>(R.id.shutterisland).setOnClickListener {
-            val intent = Intent(this, FilmDetailsActivity::class.java)
-            intent.putExtra("filmName", R.string.shutterIslandName)
-            intent.putExtra("filmDesc", R.string.shutterIslandDescription)
-            intent.putExtra("filmImg", R.drawable.shutterisland)
-            launcher.launch(intent)
-            selectId = it.id
-        }
+                override fun onStarClick(filmItem: FilmItem, position: Int) {
+                    app.changeFilmFavorite(filmItem)
+                    if(!filmItem.isFavorite) {
+                        val snackbar = Snackbar.make(
+                            recyclerView,
+                            getString(R.string.successStr),
+                            Snackbar.LENGTH_LONG
+                        )
+                        snackbar.setAction(getString(R.string.goToFavorites)) {
+                            val intent = Intent(this@MainActivity, MainActivity::class.java)
+                            intent.putExtra("isFavoriteList", true)
+                            launcher.launch(intent)
+                        }
+                        snackbar.show()
+                    }
+                    else if(isFavoriteList)
+                    {
+                        val snackbar = Snackbar.make(
+                            recyclerView,
+                            getString(R.string.successRemovedStr),
+                            Snackbar.LENGTH_LONG
+                        )
+                        snackbar.setAction(getString(R.string.cancel)) {
+                            app.changeFilmFavorite(filmItem)
+                            checkDiff()
+                        }
+                        snackbar.show()
+                    }
+                    checkDiff()
+                }
+            })
+
+
+        val divider = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        /*ResourcesCompat.getDrawable(resources, R.drawable.black_line_5dp, theme)
+            ?.let { divider.setDrawable(it) }*/
+        recyclerView.addItemDecoration(divider)
+
     }
 
-    override fun onResume() {
-        super.onResume()
-        val constraintlayout = findViewById<ConstraintLayout>(R.id.constraintlayout)
-        constraintlayout.children.forEach {
-            it.setBackgroundResource(if (it.id != selectId) R.color.trasperent else R.color.select)
-        }
+    fun checkDiff()
+    {
+        val adapter = (recyclerView.adapter as FilmItemAdapter)
+        val filmsDiffUtilCallback = FilmsDiffUtilCallback(adapter.getData(), if(!isFavoriteList) app.filmItems else app.favoritFilmsItems)
+        val filmsDiffResult = DiffUtil.calculateDiff(filmsDiffUtilCallback)
+        adapter.setData(if(!isFavoriteList) app.filmItems else app.favoritFilmsItems)
+        filmsDiffResult.dispatchUpdatesTo(adapter)
     }
+
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), object : ActivityResultCallback<ActivityResult?> {
         override fun onActivityResult(result: ActivityResult?) {
-            result ?: return
+            checkDiff()
+            result?:return
             if(result.resultCode == Activity.RESULT_OK)
             {
                 val comment = result.data?.getStringExtra("comment")
                 val isFavorite = result.data?.getBooleanExtra("isFavorite", false)
-                Log.d(TAG, "comment: " + comment + "\nisFavorite: " + isFavorite)
+                Log.d(TAG, "comment: $comment\nisFavorite: $isFavorite")
             }
         }
     })
-    private var selectId = -1
 }

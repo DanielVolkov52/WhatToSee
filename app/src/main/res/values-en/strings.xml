@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">WhatToSee</string>
+    <string name="forrestGampName">Forrest Gump</string>
+    <string name="greenMileName">Green Mile</string>
+    <string name="gladiatorName">Gladiator</string>
+    <string name="inceptionName">Inception</string>
+    <string name="interstellarName">Interstellar</string>
+    <string name="intouchablesName">Intouchables</string>
+    <string name="pulpFictionName">Pulp Fiction</string>
+    <string name="schindlersListName">Schindler\'s List</string>
+    <string name="shawshankRedemptionName">Shawshank Redemptio</string>
+    <string name="shutterIslandName">Shutter Island</string>
+    <string name="toFavorites">Add to favorites</string>
+    <string name="forrestGampDescription">Sitting at the bus stop, Forrest Gump — not very smart, but a kind and open guy — tells random people the story of his extraordinary life. Since he was very young, the guy suffered from a leg disease, the neighborhood boys teased him, but one day Forrest discovered his incredible ability to run. His childhood friend Jenny always supported and protected him, but soon their paths diverged.</string>
+    <string name="greenMileDescription">Paul Edgecombe is the head of the death row unit at the Cold Mountain prison, each of whose prisoners once passes the "green mile" on the way to the place of execution. Paul has seen a lot of prisoners and guards during his work. However, the giant John Coffey, accused of a terrible crime, became one of the most unusual inhabitants of the block.</string>
+    <string name="gladiatorDescription">In the great Roman Empire there was no military commander equal to General Maximus. The invincible legions commanded by this noble warrior idolized him and could follow him even to hell. But it so happened that the brave Maximus, ready to fight any opponent in a fair fight, was powerless against the treacherous court intrigues. The general was betrayed and sentenced to death. Having narrowly escaped death, Maximus becomes a gladiator. Having quickly gained fame in bloody duels, he finds himself in the famous Roman Colosseum, in the arena of which he will meet in a deadly battle with his sworn enemy…</string>
+    <string name="inceptionDescription">Cobb is a talented thief, the best of the best in the dangerous art of extraction: he steals valuable secrets from the depths of the subconscious during sleep, when the human mind is most vulnerable. Cobb\'s rare abilities made him a valuable player in the treacherous world of industrial espionage, but they also turned him into an eternal fugitive and deprived him of everything he had ever loved. And now Cobb has a chance to correct mistakes. His last case can bring everything back, but for this he needs to do the impossible – initiation. Instead of a perfect theft, Cobb and his team of specialists will have to pull off the opposite. Now their task is not to steal the idea, but to implement it. If they succeed, this will be the perfect crime…</string>
+    <string name="shawshankRedemptionDescription">Accountant Andy Dufresne is accused of murdering his own wife and her lover. Once in a prison called Shawshank, he is faced with cruelty and lawlessness reigning on both sides of the bars. Everyone who gets into these walls becomes their slave for the rest of their lives. But Andy, who has a lively mind and a kind soul, finds an approach to both prisoners and guards, seeking their special favor.</string>
+    <string name="interstellarDescription">When drought, dust storms and the extinction of plants lead humanity to a food crisis, a team of researchers and scientists goes through a wormhole (which presumably connects the regions of space-time over a long distance) on a journey to surpass the previous limitations for human space travel and find a planet with suitable conditions for humanity.</string>
+    <string name="intouchablesDescription">Having suffered an accident, the wealthy aristocrat Philip hires the person who is least suitable for this job as an assistant – a young resident of the suburb of Drissa, who has just been released from prison. Despite the fact that Philip is confined to a wheelchair, Driss manages to bring the spirit of adventure into the measured life of an aristocrat.</string>
+    <string name="pulpFictionDescription">Two bandits Vincent Vega and Jules Winfield have philosophical conversations in between showdowns and solving problems with the debtors of criminal boss Marcellus Wallace. In the first story, Vincent spends an unforgettable evening with Marcellas\' wife Mia. The second tells about the boxer Butch Coolidge, bought by Wallace to give up the fight. In the third story, Vincent and Jules accidentally get into trouble.</string>
+    <string name="schindlersListDescription">The film tells the real story of the mysterious Oskar Schindler, a member of the Nazi Party, a successful manufacturer who saved almost 1,200 Jews during World War II.</string>
+    <string name="shutterIslandDescription">Two American bailiffs are sent to one of the islands in Massachusetts to investigate the disappearance of a patient of a clinic for insane criminals. During the investigation, they will have to face a web of lies, a hurricane and a deadly riot of the clinic\'s inhabitants.</string>
+    <string name="saveButtonText">Save</string>
+    <string name="commentHint">Comment</string>
+    <string name="inviteText">Hi, let\'s watch the \"%s\" together!</string>
+    <string name="inviteSuccess">The invitation has been sent!</string>
+    <string name="inviteButtonText">Watching with a friend</string>
+    <string name="favoriteTitle">Favorite films</string>
+    <string name="successStr">Success</string>
+    <string name="goToFavorites">Go to favorites</string>
+    <string name="successRemovedStr">Success removed from favorites</string>
+    <string name="cancel">Cancel</string>
+    <string name="defaultShortDescription">Мне лень писать, тут какое то описание, бла бла бла …</string>
+</resources>

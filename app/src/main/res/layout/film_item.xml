@@ -49,12 +49,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="5dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/filmImageCard"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Film name"/>
+        tools:text="Film name" />
 
     <TextView
         android:id="@+id/shortDesc"
